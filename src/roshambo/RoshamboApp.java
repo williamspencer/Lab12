@@ -12,12 +12,14 @@ public class RoshamboApp {
 		String userInput = "y";
 		String opponent = "";
 		
+//		prints greeting
 		System.out.println("Welcome to Rock Paper Scissors!");
 		System.out.print("Enter your name: ");
 		userName = scan1.nextLine();
 		
+//		user chooses opponent to face
 		System.out.print("Would you like to play against The Rock or The Rando? (r/n): ");
-		opponent = scan1.nextLine();
+		opponent = Validator.readOpponent("r", "n");
 		opponent.toLowerCase();
 		
 		userInput = playRoshambo(userInput, opponent);
