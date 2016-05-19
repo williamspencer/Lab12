@@ -11,14 +11,19 @@ public class RoshamboApp {
 	public static void main(String[] args) {
 		String userInput = "y";
 		String opponent = "";
+		
 		System.out.println("Welcome to Rock Paper Scissors!");
-
 		System.out.print("Enter your name: ");
 		userName = scan1.nextLine();
+		
 		System.out.print("Would you like to play against The Rock or The Rando? (r/n): ");
 		opponent = scan1.nextLine();
 		opponent.toLowerCase();
-		do {
+		
+		userInput = playRoshambo(userInput, opponent);
+}
+	private static String playRoshambo(String userInput, String opponent) {
+		while (userInput.equalsIgnoreCase("y")){
 			switch (opponent) {
 			case "r":
 				runGame(new humanPlayer(userName), new rockPlayer("The Rock"));
@@ -29,9 +34,11 @@ public class RoshamboApp {
 			}
 			System.out.print("Play again? (y/n): ");
 		userInput = scan1.nextLine();
-		} while (userInput.equalsIgnoreCase("y"));
 		System.out.println("Thanks for playing!");
-}
+		}
+		return userInput;
+	}
+	
 	public static void runGame(Player p1, Player r1) {
 		p1.name = userName;
 		System.out.print("Rock, paper, or scissors?: ");
@@ -58,19 +65,19 @@ public class RoshamboApp {
 			System.out.println("It's a tie!");
 		} else if (human.equals("rock")) {
 			if (comp.equals("scissors"))
-				System.out.println("Rock crushes scissors. You win!!");
+				System.out.println("Rock crushes scissors. You win!");
 			else if (comp.equals("paper"))
-				System.out.println("Paper eats rock. You lose!!");
+				System.out.println("Paper eats rock. You lose!");
 		} else if (human.equals("paper")) {
 			if (comp.equals("scissors"))
-				System.out.println("Scissor cuts paper. You lose!!");
+				System.out.println("Scissor cuts paper. You lose!");
 			else if (comp.equals("rock"))
-				System.out.println("Paper eats rock. You win!!");
+				System.out.println("Paper eats rock. You win!");
 		} else if (human.equals("scissors")) {
 			if (comp.equals("paper"))
-				System.out.println("Scissor cuts paper. You win!!");
+				System.out.println("Scissor cuts paper. You win!");
 			else if (comp.equals("rock"))
-				System.out.println("Rock breaks scissors. You lose!!");
+				System.out.println("Rock breaks scissors. You lose!");
 		}
 	}
 }
